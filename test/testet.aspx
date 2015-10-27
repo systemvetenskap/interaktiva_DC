@@ -7,7 +7,7 @@
             <meta charset="utf-8" />
             <link rel="stylesheet" type="text/css" href="index.css">
             <link rel="stylesheet" type="text/css" href="responsiv.css" media="screen and (max-width: 900px)">
-          
+            
 
 
             <title>JE-bank-index</title>
@@ -22,12 +22,12 @@
                 
                 <div class="nav">
                    <ul class="clearfix">
-                        <li><a href="index.html">Hem</a></li>
-                        <li><a href="om.html">Om JE-Bank</a></li>
-                        <li><a href="admin.html">Admin</a></li>
-	                <li><a href="kompetensportalen.html">Kompetensportalen</a></li>
-                         <li><a href="kontaktuppgifter.html">Kontaktuppgifter</a></li>
-                        <li><a href="personal.html">Personal</a></li>
+                        <li><a href="#">Hem</a></li>
+                        <li><a href="#">Om JE-Bank</a></li>
+                        <li><a href="#">Admin</a></li>
+	                <li><a href="#">Kompetensportalen</a></li>
+                         <li><a href="#">Kontaktuppgifter</a></li>
+                        <li><a href="#">Personal</a></li>
                    </ul>
                 </div>
           <div class="maincontent">

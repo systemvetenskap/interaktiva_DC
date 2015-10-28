@@ -210,3 +210,7 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+test/test.xml
+test/testet.aspx.designer.cs
+test/testet.aspx
+test/testet.aspx.designer.cs

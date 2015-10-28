@@ -20,16 +20,34 @@ namespace test
             string xmlfil = Server.MapPath("test.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlfil);
+            
 
             XmlNodeList test = doc.SelectNodes("/test/testquestion");
             //Label1.Text = test.InnerText;
-            
 
+            Label1.Text = "frågor: ";
+    
 
             foreach (XmlNode nod in test)
             {
-                Label1.Text = nod["testquestion"].InnerText + " ";
+
+                Label1.Text += nod["question"].InnerText + " " ;
             }
+
+
+            /*string xmlfil = Server.MapPath("aktielista.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(xmlfil);
+
+            XmlNode foretag = doc.SelectSingleNode("/aktiebolag/foretag/namn");
+            Label1.Text = foretag.InnerText;
+
+            Label2.Text = "Aktiebolag: ";
+            XmlNodeList foretagsnamnlista = doc.SelectNodes("/aktiebolag/foretag");
+            foreach (XmlNode nod in foretagsnamnlista)
+            {
+                Label2.Text += nod["namn"].InnerText + " ";
+            }*/
         }
 
     }

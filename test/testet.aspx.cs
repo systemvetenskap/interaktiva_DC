@@ -10,9 +10,42 @@ namespace test
 {
     public partial class testet : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         { 
-            getXML();
+            LoadTestClass();
+
+        }
+
+        private void LoadTestClass()
+        {
+            string xmlfil = Server.MapPath("test.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(xmlfil);
+
+
+            TestClass testet = new TestClass();
+
+            List<TestClass> testlista = new List<TestClass>();
+
+            XmlNodeList xmlLista = doc.SelectNodes("/test/testquestion");
+
+
+            foreach (XmlNode nod in xmlLista)
+            {
+                testet.Group = nod["group"].InnerText;
+                testet.Question = nod["question"].InnerText;
+                testet.Answer1 = nod["answer1"].InnerText;
+                testet.Answer2 = nod["answer2"].InnerText;
+                testet.Rightanswer = nod["rightanswer"].InnerText;
+               
+
+                testlista.Add(testet);
+            }
+
+
+            Repeater1.DataSource = testlista;
+            Repeater1.DataBind();
         }
 
         private void getXML()
@@ -25,14 +58,14 @@ namespace test
             XmlNodeList test = doc.SelectNodes("/test/testquestion");
             //Label1.Text = test.InnerText;
 
-            Label1.Text = "frågor: ";
+            //Label1.Text = "frågor: ";
     
 
-            foreach (XmlNode nod in test)
-            {
+            //foreach (XmlNode nod in test)
+            //{
 
-                Label1.Text += nod["question"].InnerText + " " ;
-            }
+            //    Label1.Text += nod["question"].InnerText + " " ;
+            //}
 
 
             /*string xmlfil = Server.MapPath("aktielista.xml");

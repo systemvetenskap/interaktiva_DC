@@ -70,6 +70,6 @@
                  <p title="© 2015 JE-Bank AB (publ)">© 2015 JE-Bank AB (publ) <br />Jill Lindqvist jili1400@student.miun.se</p>
               </div>
 
-           </div>     
+                
     </body>
 </html>

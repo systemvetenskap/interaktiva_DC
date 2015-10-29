@@ -14,8 +14,8 @@
      </head>
      <body>
 
-         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-           
+         
+           <asp:Label ID = "Label1" runat="server" Text="Label"></asp:Label>
              <div class="container">
                        
                        <div class="header">
@@ -43,14 +43,17 @@
               </headerTemplate>
 		      <itemTemplate>
                  
-                //<div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
-	           // <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->
-		        <h2><%# Eval("question")%></h2>
-		        <p><%# Eval("wronganswer")%></p>
-                <p><%# Eval("rightanswer")%></p>
-                //<p> <%#Container.ItemIndex %></p>
+                <%--<div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
+	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
+		        
+                <h2><%# Eval("question")%></h2>
+		        <p><%# Eval("answer1")%></p>
+                <p><%# Eval("answer2")%></p>
+                
+ 
+                <%--//<p> <%#Container.ItemIndex %></p>
 	            //</div>
-                  
+                  --%>
 		     </itemTemplate>
              <footerTemplate>
                

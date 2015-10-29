@@ -24,7 +24,7 @@ namespace test
             doc.Load(xmlfil);
 
 
-            TestClass testet = new TestClass();
+          
 
             List<TestClass> testlista = new List<TestClass>();
 
@@ -33,6 +33,9 @@ namespace test
 
             foreach (XmlNode nod in xmlLista)
             {
+                TestClass testet = new TestClass();
+
+                testet.id = nod.Attributes["id"].Value;
                 testet.Group = nod["group"].InnerText;
                 testet.Question = nod["question"].InnerText;
                 testet.Answer1 = nod["answer1"].InnerText;

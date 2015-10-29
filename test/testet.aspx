@@ -47,9 +47,16 @@
 	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
 		        
                 <h2><%# Eval("question")%></h2>
-		        <p><%# Eval("answer1")%></p>
-                <p><%# Eval("answer2")%></p>
-                
+		        <%--<p><%# Eval("answer1")%></p>
+                <p><%# Eval("answer2")%></p>--%>
+
+                  <form>
+                       <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
+                      <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
+                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
+                  
+                </form>
+                  
  
                 <%--//<p> <%#Container.ItemIndex %></p>
 	            //</div>
@@ -62,6 +69,84 @@
                
              </article>
 
+              <article class="middlecontent">
+               <!-- sektion 1 -->
+                <asp:Repeater ID="Repeater2" runat="server">
+          
+              <headerTemplate>
+                 
+              </headerTemplate>
+		      <itemTemplate>
+                 
+                <%--<div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
+	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
+		        
+                <h2><%# Eval("question")%></h2>
+		        <%--<p><%# Eval("answer1")%></p>
+                <p><%# Eval("answer2")%></p>--%>
+
+                  <form>
+                       <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
+                      <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
+                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
+                  
+                </form>
+                  
+ 
+                <%--//<p> <%#Container.ItemIndex %></p>
+	            //</div>
+                  --%>
+		     </itemTemplate>
+             <footerTemplate>
+               
+             </footerTemplate>
+         </asp:Repeater>
+               
+             </article>
+
+              <article class="bottomcontent">
+               <!-- sektion 1 -->
+                <asp:Repeater ID="Repeater3" runat="server">
+          
+              <headerTemplate>
+                 
+              </headerTemplate>
+		      <itemTemplate>
+                 
+                <%--<div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
+	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
+		        
+                <h2><%# Eval("question")%></h2>
+		        <%--<p><%# Eval("answer1")%></p>
+                <p><%# Eval("answer2")%></p>--%>
+
+                  <form>
+                       
+                      <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
+                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
+                     
+                </form>
+                  
+ 
+                <%--//<p> <%#Container.ItemIndex %></p>
+	            //</div>
+                  --%>
+		     </itemTemplate>
+             <footerTemplate>
+               
+             </footerTemplate>
+         </asp:Repeater>
+               
+             </article>
+             <article>
+                 <form>  
+                     
+                   <button onclick="document.write(5 + 6)">Lämna in</button>
+
+                 </form>
+               
+
+             </article> 
 
            </div> 
          </div>
@@ -70,7 +155,7 @@
                  
                   
                   
-                 <p title="© 2015 JE-Bank AB (publ)">© 2015 JE-Bank AB (publ) <br />Jill Lindqvist jili1400@student.miun.se</p>
+                 <p title="© 2015 JE-Bank AB (publ)">© 2015 JE-Bank AB (publ) <br />Jill Lindqvist och Camilla Hoff</p>
               </div>
 
                 

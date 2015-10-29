@@ -24,25 +24,27 @@ namespace test
             doc.Load(xmlfil);
 
 
-            TestClass testet = new TestClass();
+           
 
             List<TestClass> testlista = new List<TestClass>();
 
             XmlNodeList xmlLista = doc.SelectNodes("/test/testquestion");
 
-
             foreach (XmlNode nod in xmlLista)
             {
+                TestClass testet = new TestClass();
+
+                //nod.Attributes[nr].Value;
+                //testet.id = nod["question"].GetAttributeNode("id").Value;
+
                 testet.Group = nod["group"].InnerText;
                 testet.Question = nod["question"].InnerText;
                 testet.Answer1 = nod["answer1"].InnerText;
                 testet.Answer2 = nod["answer2"].InnerText;
                 testet.Rightanswer = nod["rightanswer"].InnerText;
                
-
                 testlista.Add(testet);
             }
-
 
             Repeater1.DataSource = testlista;
             Repeater1.DataBind();

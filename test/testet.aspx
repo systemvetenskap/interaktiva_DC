@@ -36,6 +36,8 @@
           
            <article class="topcontent">
                <!-- sektion 1 -->
+               <form runat="server">
+
                 <asp:Repeater ID="Repeater1" runat="server">
           
               <headerTemplate>
@@ -50,13 +52,22 @@
 		        <%--<p><%# Eval("answer1")%></p>
                 <p><%# Eval("answer2")%></p>--%>
 
-                  <form>
-                       <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
-                      <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
-                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
-                  
-                </form>
-                  
+                <%--  <form>--%>
+                     <%--  <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>--%>
+                      <%--<p> <input type="radio" name="group1" value="answer1" id="myanswer1"><%# Eval("answer1")%></p> 
+                      <p>
+                          <input type="radio" name="group1" value="answer2" id="myanswer2"><%# Eval("answer2")%></p>
+                      --%>
+                      
+                      <p><%hello(3)%></p>
+                      <asp:RadioButton ID="RBanswer1" runat="server" GroupName="Group1" Text='<%# Eval("answer1")%>'/>
+                      <br/>
+                      <asp:RadioButton ID="RBanswer2" runat="server" GroupName="Group1" Text='<%# Eval("answer2")%>'/>
+                      
+          
+
+                      <%-- </form>--%>
+                 
  
                 <%--//<p> <%#Container.ItemIndex %></p>
 	            //</div>
@@ -66,7 +77,8 @@
                
              </footerTemplate>
          </asp:Repeater>
-               
+                 </form>
+
              </article>
 
               <article class="middlecontent">
@@ -85,12 +97,12 @@
 		        <%--<p><%# Eval("answer1")%></p>
                 <p><%# Eval("answer2")%></p>--%>
 
-                  <form>
+                <%--  <form>
                        <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
                       <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
                       <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
                   
-                </form>
+                </form>--%>
                   
  
                 <%--//<p> <%#Container.ItemIndex %></p>
@@ -120,12 +132,12 @@
 		        <%--<p><%# Eval("answer1")%></p>
                 <p><%# Eval("answer2")%></p>--%>
 
-                  <form>
+                  <%--<form>
                        
                       <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
                       <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
                      
-                </form>
+                </form>--%>
                   
  
                 <%--//<p> <%#Container.ItemIndex %></p>
@@ -141,7 +153,28 @@
              <article>
                  <form>  
                      
-                   <button onclick="document.write(5 + 6)">Lämna in</button>
+                     <button onclick="myFunction()">Lämna in</button>
+
+<%--                 <script>
+                 function check() {
+                 document.getElementById("RBanswer1").checked = true;
+                 }
+                 function uncheck() {
+                     document.getElementById("RBanswer1").checked = false;
+                 }
+                 </script>--%>
+
+                 <p id="demo"></p>
+
+                 <script>
+                     function myFunction(CreateAndLoadInToXML) {
+                 var x = document.getElementById("myanswer1").value;
+                 document.getElementById("demo").innerHTML = x;
+                
+                window.alert("Du har nu lagt till demo");
+                 
+                 }
+                 </script>
 
                  </form>
                

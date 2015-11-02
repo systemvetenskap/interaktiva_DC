@@ -13,9 +13,11 @@ namespace test
 
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             LoadTestProdukterClass();
             LoadTestEkonomiClass();
             LoadTestEtikClass();
+            CreateAndLoadInToXML();
 
         }
 
@@ -53,6 +55,13 @@ namespace test
             Repeater1.DataBind();
         }
 
+        public int hello(int y)
+        {
+            int x = y;
+            int z = 3 * x;
+            return z;
+           
+        }
 
         private void LoadTestEtikClass()
         {
@@ -88,82 +97,96 @@ namespace test
             Repeater2.DataBind();
         }
 
-        //private void CreateAndLoadInToXML(string personId)   //denna metod är under uppbyggnad inte alls klar!!!!!
+        //private void JillCreateXML()
         //{
-            //(källa : http://visualcsharptutorials.com/net-framework/writing-xml-file)
+        //    //Create the XmlDocument.
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.LoadXml(("<Student type='regular' Section='B'><Name>Tommy ex </ Name ></ Student > ")); 
+        //    //Save the document to a file.
+        //    doc.Save("C:\\Users\\Jillsan\\Source\\Repos\\interaktiva_DC\test\\jilltest.xml");
+
+        //    //You can also use Save method to display contents on console if you pass Console.Out as a
+        //    //arameter.For example: 
+        //    //doc.Save(Console.Out);
+
+
+        //}
+
+        private void CreateAndLoadInToXML()   //denna metod är under uppbyggnad inte alls klar!!!!!
+        {
+           // (källa : http://visualcsharptutorials.com/net-framework/writing-xml-file)
 
             //Create an xml document
-            //XmlDocument doc = new XmlDocument();
+        XmlDocument doc = new XmlDocument();
 
             //If there is no current file, then create a new one
-        //    if (!System.IO.File.Exists(PATH)) // denna path mäste vara beroende av den person som gör provet behöver kopplas till person id i databasen. 
-        //    {
-        //        //Create neccessary nodes
-        //        XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "UTF-8", "yes");
-        //        XmlComment comment = doc.CreateComment("This is an XML Generated File");
-        //        XmlElement root = doc.CreateElement("answertest");
-        //        XmlElement testquestion = doc.CreateElement("testquestion");
-        //        XmlAttribute id = doc.CreateAttribute("id");
-        //        XmlElement question = doc.CreateElement("question");
-        //        XmlElement answer1 = doc.CreateElement("answer1");
-        //        XmlElement answer2 = doc.CreateElement("answer2");
-        //        XmlElement rightanswer1 = doc.CreateElement("rightanswer");
-        //        XmlElement gender = doc.CreateElement("Gender");
+            if (!System.IO.File.Exists("C:\\Users\\Jillsan\\Source\\Repos\\interaktiva_DC\test\\jilltest.xml")) // denna path mäste vara beroende av den person som gör provet behöver kopplas till person id i databasen. 
+            {
+                //Create neccessary nodes
+                XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "UTF-8", "yes");
+                XmlComment comment = doc.CreateComment("This is an XML Generated File");
+                XmlElement root = doc.CreateElement("answertest");
+                XmlElement testquestion = doc.CreateElement("testquestion");
+                XmlAttribute id = doc.CreateAttribute("id");
+                XmlElement question = doc.CreateElement("question");
+                XmlElement answer1 = doc.CreateElement("answer1");
+                XmlElement answer2 = doc.CreateElement("answer2");
+                //XmlElement rightanswer1 = doc.CreateElement("rightanswer");
 
-        //        //Add the values for each nodes
-        //        name.Value = textBoxName.Text;
-        //        age.InnerText = textBoxAge.Text;
-        //        gender.InnerText = textBoxGender.Text;
+                //Add the values for each nodes
 
-        //        //Construct the document
-        //        doc.AppendChild(declaration);
-        //        doc.AppendChild(comment);
-        //        doc.AppendChild(root);
-        //        root.AppendChild(person);
-        //        person.Attributes.Append(name);
-        //        person.AppendChild(age);
-        //        person.AppendChild(gender);
+               
+                
+                //answer1.InnerText = radioObject.answer1;
+                //answer2.InnerText = radioObject.answer2; 
 
-        //        doc.Save(PATH);
-        //    }
-        //    else //If there is already a file
-        //    {
-        //        //Load the XML File
-        //        doc.Load(PATH);
+                //Construct the document
+                doc.AppendChild(declaration);
+                doc.AppendChild(comment);
+                doc.AppendChild(root);
+                root.AppendChild(testquestion);
+                testquestion.Attributes.Append(id);
+                testquestion.AppendChild(answer1);
+                testquestion.AppendChild(answer2);
 
-        //        //Get the root element
-        //        XmlElement root = doc.DocumentElement;
+                doc.Save(@"C:\Users\Jillsan\Source\Repos\interaktiva_DC\test\jilltest.xml");
+            }
+            else //If there is already a file
+            {
+                //Load the XML File
+                doc.Load(@"C:\Users\Jillsan\Source\Repos\interaktiva_DC\test\jilltest.xml");
 
-        //        XmlElement person = doc.CreateElement("Person");
-        //        XmlAttribute name = doc.CreateAttribute("name");
-        //        XmlElement age = doc.CreateElement("Age");
-        //        XmlElement gender = doc.CreateElement("Gender");
+                //Get the root element
+                XmlElement root = doc.DocumentElement;
 
-        //        //Add the values for each nodes
-        //        name.Value = textBoxName.Text;
-        //        age.InnerText = textBoxAge.Text;
-        //        gender.InnerText = textBoxGender.Text;
+                XmlElement testquestion = doc.CreateElement("testquestion");
+                XmlAttribute id = doc.CreateAttribute("id");
+                XmlElement question = doc.CreateElement("question");
+                XmlElement answer1 = doc.CreateElement("answer1");
+                XmlElement answer2 = doc.CreateElement("answer2");
+                XmlElement rightanswer1 = doc.CreateElement("rightanswer");
 
-        //        //Construct the Person element
-        //        person.Attributes.Append(name);
-        //        person.AppendChild(age);
-        //        person.AppendChild(gender);
 
-        //        //Add the New person element to the end of the root element
-        //        root.AppendChild(person);
+                //Lägg till värdet till varje node
 
-        //        //Save the document
-        //        doc.Save(PATH);
-        //    }
+                //answer2.InnerText = 
 
-        //    //Show confirmation message
-        //    MessageBox.Show("Details have been added to the XML File.");
 
-        //    //Reset text fields for new input
-        //    textBoxName.Text = String.Empty;
-        //    textBoxAge.Text = String.Empty;
-        //    textBoxGender.Text = String.Empty;
-        //}
+                //Construct the testquestion element
+
+                testquestion.AppendChild(answer1);
+                testquestion.AppendChild(answer2);
+
+                //Lägg till element till slutet av xml:en
+                //root.AppendChild(testquestion) - behöver vi inte
+
+                //Spara dokumen
+                doc.Save(@"C:\Users\Jillsan\Source\Repos\interaktiva_DC\test\jilltest.xml");
+            }
+            //ge någon input om att xml-filen skapats
+
+           //reset alla knappar
+        }
 
 
 

@@ -39,7 +39,7 @@
                   <div class="question">
 
                            <p>Vilken ekonomi är bäst?</p>
-                      <asp:CheckBoxList ID="QuestionList1" runat="server" CssClass="question">
+                      <asp:CheckBoxList ID="QuestionList1" runat="server" CssClass="question" Value="Fråga1">
                          
                           <asp:ListItem Value="answer1">Dollar</asp:ListItem>
                           <asp:ListItem Value="answer2">Skr</asp:ListItem>
@@ -47,7 +47,7 @@
                       </asp:CheckBoxList>
                       
                           <p>Vilken ekonomi är bäst?</p>
-                      <asp:CheckBoxList ID="QuestionList2" runat="server" CssClass="question">
+                      <asp:CheckBoxList ID="QuestionList2" runat="server" CssClass="question" Value="Fråga 2">
 
                           <asp:ListItem Value="answer1">Svar 1</asp:ListItem>
                           <asp:ListItem Value="answer2">Svar 2</asp:ListItem>

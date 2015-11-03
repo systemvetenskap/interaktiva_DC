@@ -51,13 +51,15 @@
                 <p><%# Eval("answer2")%></p>--%>
 
                   <form>
-                       <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
+                       <%--<asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>--%>
                       <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
                       <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
                   
                 </form>
                   
- 
+<%-- här behöver jag skriva lämna in svar på radio och <%#Eval("rightanswer")%> till metod rätta. om radio.text???? == <%#Eval("rightanswer")%>    --%>
+                  
+
                 <%--//<p> <%#Container.ItemIndex %></p>
 	            //</div>
                   --%>
@@ -86,7 +88,7 @@
                 <p><%# Eval("answer2")%></p>--%>
 
                   <form>
-                       <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
+                    <%--   <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>--%>
                       <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
                       <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
                   
@@ -122,10 +124,11 @@
 
                   <form>
                        
-                      <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
-                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
-                     
-                </form>
+                     <%-- <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
+                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>--%>
+                      <if answer2.checked></if>
+                      <asp:RadioButton ID="RadioButton1" runat="server" />
+                  </form>
                   
  
                 <%--//<p> <%#Container.ItemIndex %></p>

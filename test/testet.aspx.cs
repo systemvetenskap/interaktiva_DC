@@ -276,8 +276,9 @@ namespace test
 
                         correctanswer.id = checkbox.ID;
                         correctanswer.chkanswer = chkitem.ToString();
-                        correctanswer.Rightanswer = "Dollar";
-     
+                        correctanswer.Rightanswer = "Dollar"; 
+                        //correctanswer.Rightanswer = "Svar 1 ";
+
                         testclasslist.Add(correctanswer);
 
                         if (correctanswer.chkanswer == correctanswer.Rightanswer)

@@ -15,7 +15,7 @@
      <body>
 
          
-           <asp:Label ID = "Label1" runat="server" Text="Label"></asp:Label>
+          
              <div class="container">
                        
                        <div class="header">
@@ -33,156 +33,48 @@
                    </ul>
                 </div>
           <div class="maincontent">
-          
-           <article class="topcontent">
-               <!-- sektion 1 -->
-               <form runat="server">
+            <form id="form1" runat="server">
+              <div class="test">
+              
+                  <div class="question">
 
-                <asp:Repeater ID="Repeater1" runat="server">
-          
-              <headerTemplate>
-                 
-              </headerTemplate>
-		      <itemTemplate>
-                 
-                <%--<div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
-	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
-		        
-                <h2><%# Eval("question")%></h2>
-		        <%--<p><%# Eval("answer1")%></p>
-                <p><%# Eval("answer2")%></p>--%>
+                           <p>Vilken ekonomi är bäst?</p>
+                      <asp:CheckBoxList ID="QuestionList1" runat="server" CssClass="question">
+                         
+                          <asp:ListItem Value="answer1">Dollar</asp:ListItem>
+                          <asp:ListItem Value="answer2">Skr</asp:ListItem>
 
-                <%--  <form>--%>
-                     <%--  <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>--%>
-                      <%--<p> <input type="radio" name="group1" value="answer1" id="myanswer1"><%# Eval("answer1")%></p> 
-                      <p>
-                          <input type="radio" name="group1" value="answer2" id="myanswer2"><%# Eval("answer2")%></p>
-                      --%>
+                      </asp:CheckBoxList>
                       
-                      <p><%hello(3)%></p>
-                      <asp:RadioButton ID="RBanswer1" runat="server" GroupName="Group1" Text='<%# Eval("answer1")%>'/>
-                      <br/>
-                      <asp:RadioButton ID="RBanswer2" runat="server" GroupName="Group1" Text='<%# Eval("answer2")%>'/>
+                          <p>Vilken ekonomi är bäst?</p>
+                      <asp:CheckBoxList ID="QuestionList2" runat="server" CssClass="question">
+
+                          <asp:ListItem Value="answer1">Svar 1</asp:ListItem>
+                          <asp:ListItem Value="answer2">Svar 2</asp:ListItem>
+
+
+                      </asp:CheckBoxList>
+
+
                       
-          
+                      
 
-                      <%-- </form>--%>
-                 
- 
-                <%--//<p> <%#Container.ItemIndex %></p>
-	            //</div>
-                  --%>
-		     </itemTemplate>
-             <footerTemplate>
-               
-             </footerTemplate>
-         </asp:Repeater>
-                 </form>
-
-             </article>
-
-              <article class="middlecontent">
-               <!-- sektion 1 -->
-                <asp:Repeater ID="Repeater2" runat="server">
-          
-              <headerTemplate>
-                 
-              </headerTemplate>
-		      <itemTemplate>
-                 
-                <%--<div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
-	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
-		        
-                <h2><%# Eval("question")%></h2>
-		        <%--<p><%# Eval("answer1")%></p>
-                <p><%# Eval("answer2")%></p>--%>
-
-                <%--  <form>
-                       <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
-                      <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
-                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
                   
-                </form>--%>
-                  
- 
-                <%--//<p> <%#Container.ItemIndex %></p>
-	            //</div>
-                  --%>
-		     </itemTemplate>
-             <footerTemplate>
-               
-             </footerTemplate>
-         </asp:Repeater>
-               
-             </article>
 
-              <article class="bottomcontent">
-               <!-- sektion 1 -->
-                <asp:Repeater ID="Repeater3" runat="server">
-          
-              <headerTemplate>
+
+                  </div>
+                      
+                      
+              
+              </div>
+               <asp:Button ID="BtnLamnain" runat="server" Text="Lämna in" OnClick="BtnLamnain_Click"/>
+                <br />
+
+               
+
+                </form>
+                </div>
                  
-              </headerTemplate>
-		      <itemTemplate>
-                 
-                <%--<div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
-	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
-		        
-                <h2><%# Eval("question")%></h2>
-		        <%--<p><%# Eval("answer1")%></p>
-                <p><%# Eval("answer2")%></p>--%>
-
-                  <%--<form>
-                       
-                      <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
-                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
-                     
-                </form>--%>
-                  
- 
-                <%--//<p> <%#Container.ItemIndex %></p>
-	            //</div>
-                  --%>
-		     </itemTemplate>
-             <footerTemplate>
-               
-             </footerTemplate>
-         </asp:Repeater>
-               
-             </article>
-             <article>
-                 <form>  
-                     
-                     <button onclick="myFunction()">Lämna in</button>
-
-<%--                 <script>
-                 function check() {
-                 document.getElementById("RBanswer1").checked = true;
-                 }
-                 function uncheck() {
-                     document.getElementById("RBanswer1").checked = false;
-                 }
-                 </script>--%>
-
-                 <p id="demo"></p>
-
-                 <script>
-                     function myFunction(CreateAndLoadInToXML) {
-                 var x = document.getElementById("myanswer1").value;
-                 document.getElementById("demo").innerHTML = x;
-                
-                window.alert("Du har nu lagt till demo");
-                 
-                 }
-                 </script>
-
-                 </form>
-               
-
-             </article> 
-
-           </div> 
-         </div>
 
               <div class="footer">
                  
@@ -191,6 +83,17 @@
                  <p title="© 2015 JE-Bank AB (publ)">© 2015 JE-Bank AB (publ) <br />Jill Lindqvist och Camilla Hoff</p>
               </div>
 
-                
+              </div>  
     </body>
 </html>
+
+
+<%--                 <script>
+                     function myFunction(CreateAndLoadInToXML) {
+                 var x = document.getElementById("myanswer1").value;
+                 document.getElementById("demo").innerHTML = x;
+                
+                window.alert("Du har nu lagt till demo");--%>
+            <%--     
+                 }
+                 </script>--%>

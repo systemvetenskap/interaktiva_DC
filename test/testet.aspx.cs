@@ -10,6 +10,7 @@ namespace test
 {
     public partial class testet : System.Web.UI.Page
     {
+        List<TestClass> testclasslist = new List<TestClass>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -51,8 +52,8 @@ namespace test
             }
 
 
-            Repeater1.DataSource = testlista;
-            Repeater1.DataBind();
+            //Repeater1.DataSource = testlista;
+            //Repeater1.DataBind();
         }
 
         public int hello(int y)
@@ -93,8 +94,8 @@ namespace test
             }
 
 
-            Repeater2.DataSource = testlista;
-            Repeater2.DataBind();
+            //Repeater2.DataSource = testlista;
+            //Repeater2.DataBind();
         }
 
         //private void JillCreateXML()
@@ -230,10 +231,100 @@ namespace test
             }
 
 
-            Repeater3.DataSource = testlista;
-            Repeater3.DataBind();
+            //Repeater3.DataSource = testlista;
+            //Repeater3.DataBind();
         }
 
+        private void AmountOfQuestion(int sumquestions)
+        {
+            int SumQuestions = 1;
+            int SumPages = SumQuestions / sumquestions;
+
+
+            List<ListItem> questions = new List<ListItem>();
+            for (int i = 1; i <= SumQuestions; i++)
+            {
+                ListItem item = new ListItem();
+                item.Text = i.ToString();
+                item.Value = i.ToString();
+            }
+
+        }
+
+
+        protected void BtnLamnain_Click(Object sender, EventArgs e)
+        {
+          
+            foreach (Control checkbox in form1.Controls)
+            {
+                if (checkbox.GetType() == typeof(CheckBoxList))
+                {
+                    Response.Write(checkbox.ID);
+                    CheckBoxList cbl = new CheckBoxList();
+                    cbl = (CheckBoxList)checkbox;
+
+                    foreach (ListItem chkitem in cbl.Items)
+                    {
+                        if (chkitem.Selected)
+                        {
+                            Response.Write(chkitem.Text);
+                            //testet.testclasslist.(chkitem.ToString());
+                            
+                        }
+
+                        
+                        
+                    }
+                }
+            }
+        }
+        private void testCheck(CheckBoxList cbl)
+        {
+            CheckBoxList cbl1 = cbl;
+            
+
+            int sumTotal = 0;
+            //int sumEtik = 0;
+            //int sumEkonomi = 0;
+            //int sumProdukter = 0;
+
+
+            //foreach ( ListItem item in cbl.Items)
+            //{
+                
+            //}    
+            ////{
+
+            //    string answer = objekt.TheAnswer;
+            //    string rightanswer = objekt.Rightanswer;
+            //    string group = objekt.Group;
+
+
+
+            //    if (answer == rightanswer && group == "Etik och regelverk")
+            //    {
+            //        sumEtik++;
+            //        sumTotal++;
+
+            //    }
+            //    else if (answer == rightanswer && group == "Ekonomi")
+            //    {
+            //        sumEkonomi++;
+            //        sumTotal++;
+            //    }
+            //    else if (answer == rightanswer && group == "Produkter och hantering")
+            //    {
+            //        sumProdukter++;
+            //        sumTotal++;
+            //    }
+            //    else
+            //    {
+            //        //  sumTotal = sumTotal; skriver inte ut detta
+            //    }
+            //}
+
+        }
+                    
 
         private void getXML()
         {

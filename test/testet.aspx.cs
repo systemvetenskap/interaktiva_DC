@@ -254,6 +254,7 @@ namespace test
 
         protected void BtnLamnain_Click(Object sender, EventArgs e)
         {
+           
           
             foreach (Control checkbox in form1.Controls)
             {
@@ -268,18 +269,25 @@ namespace test
                         if (chkitem.Selected)
                         {
                             Response.Write(chkitem.Text);
-                            //testet.testclasslist.(chkitem.ToString());
-                            
                         }
 
-                        
-                        
+
+                        TestClass correctanswer = new TestClass();
+
+                        correctanswer.id = checkbox.ID;
+                        correctanswer.chkanswer = chkitem.ToString();
+
+                        testclasslist.Add(correctanswer);
+
+
+
                     }
                 }
             }
         }
         private void testCheck(CheckBoxList cbl)
         {
+           
             CheckBoxList cbl1 = cbl;
             
 

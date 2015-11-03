@@ -276,58 +276,62 @@ namespace test
 
                         correctanswer.id = checkbox.ID;
                         correctanswer.chkanswer = chkitem.ToString();
-
+                        correctanswer.Rightanswer = "Dollar";
+     
                         testclasslist.Add(correctanswer);
 
-
+                        if (correctanswer.chkanswer == correctanswer.Rightanswer)
+                        {
+                            Response.Write("Rätt");
+                        }
 
                     }
                 }
             }
         }
       
-          private void TestCheck(List<TestClass> objektslista)//måste skicka in en objektslista med group,svar och rätt svar
-        {
-            int sumTotal = 0;  // kan itne ligga här för då nollas de varje gång denan körs... jo nu...
-            int sumEtik = 0;
-            int sumEkonomi = 0;
-            int sumProdukter = 0;
+        //  private void TestCheck(List<TestClass> objektslista)//måste skicka in en objektslista med group,svar och rätt svar
+        //{
+        //    int sumTotal = 0;  // kan itne ligga här för då nollas de varje gång denan körs... jo nu...
+        //    int sumEtik = 0;
+        //    int sumEkonomi = 0;
+        //    int sumProdukter = 0;
 
 
 
 
-            foreach (TestClass objekt in objektslista)
-            {
+        //    foreach (TestClass objekt in objektslista)
+        //    {
 
-                string answer = objekt.chkanswer;
-                string rightanswer = objekt.Rightanswer;
-                string group = objekt.Group;
+        //        string answer = objekt.chkanswer;
+        //        string rightanswer = objekt.Rightanswer;
+        //        string group = objekt.Group;
 
 
 
-                //    if (answer == rightanswer && group == "Etik och regelverk")
-                //    {
-                //        sumEtik++;
-                //        sumTotal++;
+        //        //    if (answer == rightanswer && group == "Etik och regelverk")
+        //        //    {
+        //        //        sumEtik++;
+        //        //        sumTotal++;
 
-                //    }
-                //    else if (answer == rightanswer && group == "Ekonomi")
-                //    {
-                //        sumEkonomi++;
-                //        sumTotal++;
-                //    }
-                //    else if (answer == rightanswer && group == "Produkter och hantering")
-                //    {
-                //        sumProdukter++;
-                //        sumTotal++;
-                //    }
-                //    else
-                //    {
-                //        //  sumTotal = sumTotal; skriver inte ut detta
-                //    }
-                //}
+        //        //    }
+        //        //    else if (answer == rightanswer && group == "Ekonomi")
+        //        //    {
+        //        //        sumEkonomi++;
+        //        //        sumTotal++;
+        //        //    }
+        //        //    else if (answer == rightanswer && group == "Produkter och hantering")
+        //        //    {
+        //        //        sumProdukter++;
+        //        //        sumTotal++;
+        //        //    }
+        //        //    else
+        //        //    {
+        //        //        //  sumTotal = sumTotal; skriver inte ut detta
+        //        //    }
+        //        //}
 
-            }
+        //    };
                     
 
         private void getXML()

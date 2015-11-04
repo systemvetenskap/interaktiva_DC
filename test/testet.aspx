@@ -33,6 +33,7 @@
                    </ul>
                 </div>
           <div class="maincontent">
+<<<<<<< HEAD
             <form id="form1" runat="server">
               <div class="test">
               
@@ -59,6 +60,104 @@
                       
                       
 
+=======
+          
+           <article class="topcontent">
+               <!-- sektion 1 -->
+                <asp:Repeater ID="Repeater1" runat="server">
+          
+              <headerTemplate>
+                 
+              </headerTemplate>
+		      <itemTemplate>
+                 
+                <%--<div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
+	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
+		        
+                <h2><%# Eval("question")%></h2>
+		        <%--<p><%# Eval("answer1")%></p>
+                <p><%# Eval("answer2")%></p>--%>
+
+                  <form>
+                       <%--<asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>--%>
+                      <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
+                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
+                  
+                </form>
+                  
+<%-- här behöver jag skriva lämna in svar på radio och <%#Eval("rightanswer")%> till metod rätta. om radio.text???? == <%#Eval("rightanswer")%>    --%>
+                  
+
+                <%--//<p> <%#Container.ItemIndex %></p>
+	            //</div>
+                  --%>
+		     </itemTemplate>
+             <footerTemplate>
+               
+             </footerTemplate>
+         </asp:Repeater>
+               
+             </article>
+
+              <article class="middlecontent">
+               <!-- sektion 1 -->
+                <asp:Repeater ID="Repeater2" runat="server">
+          
+              <headerTemplate>
+                 
+              </headerTemplate>
+		      <itemTemplate>
+                 
+                <%--<div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
+	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
+		        
+                <h2><%# Eval("question")%></h2>
+		        <%--<p><%# Eval("answer1")%></p>
+                <p><%# Eval("answer2")%></p>--%>
+
+                  <form>
+                    <%--   <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>--%>
+                      <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
+                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
+                  
+                </form>
+                  
+ 
+                <%--//<p> <%#Container.ItemIndex %></p>
+	            //</div>
+                  --%>
+		     </itemTemplate>
+             <footerTemplate>
+               
+             </footerTemplate>
+         </asp:Repeater>
+               
+             </article>
+
+              <article class="bottomcontent">
+               <!-- sektion 1 -->
+                <asp:Repeater ID="Repeater3" runat="server">
+          
+              <headerTemplate>
+                 
+              </headerTemplate>
+		      <itemTemplate>
+                 
+                <%--<div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
+	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
+		        
+                <h2><%# Eval("question")%></h2>
+		        <%--<p><%# Eval("answer1")%></p>
+                <p><%# Eval("answer2")%></p>--%>
+
+                  <form>
+                       
+                     <%-- <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
+                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>--%>
+                      <if answer2.checked></if>
+                      <asp:RadioButton ID="RadioButton1" runat="server" />
+                  </form>
+>>>>>>> refs/remotes/origin/camillasfirstbranch
                   
 
 

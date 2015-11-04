@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,14 +12,38 @@ namespace test
     public partial class testet : System.Web.UI.Page
     {
         List<TestClass> testclasslist = new List<TestClass>();
+        List<TestClass> testlista = new List<TestClass>();
+        
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            LoadTestProdukterClass();
-            LoadTestEkonomiClass();
-            LoadTestEtikClass();
-            CreateAndLoadInToXML();
+            if (!IsPostBack)
+            {
+                BindXmlToCheckBoxList();
+                
+            }
+
+            //LoadTestProdukterClass();
+           // LoadTestEkonomiClass();
+            //LoadTestEtikClass();
+            // CreateAndLoadInToXML();
+
+        }
+
+        private void BindXmlToCheckBoxList()
+        {
+            string filepath = Server.MapPath("C:\\Users\\Jillsan\\Source\\Repos\\interaktiva_DC\test\testEkonomi.xml");
+            using (DataSet ds = new DataSet())
+            {
+                ds.ReadXml(filepath);
+
+                cbltestEkonomi.DataSource = ds;
+                cbltestEkonomi.DataTextField = "name";
+                cbltestEkonomi.DataSource = "id";
+                cbltestEkonomi.DataBind();
+
+            }
 
         }
 
@@ -28,13 +53,7 @@ namespace test
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlfil);
 
-
-
-
-            List<TestClass> testlista = new List<TestClass>();
-
             XmlNodeList xmlLista = doc.SelectNodes("/testekonomi/testquestion");
-
 
             foreach (XmlNode nod in xmlLista)
             {
@@ -47,13 +66,11 @@ namespace test
                 testet.Answer2 = nod["answer2"].InnerText;
                 testet.Rightanswer = nod["rightanswer"].InnerText;
 
-
                 testlista.Add(testet);
             }
 
-
-            //Repeater1.DataSource = testlista;
-            //Repeater1.DataBind();
+            Repeater1.DataSource = testlista;
+            Repeater1.DataBind();
         }
 
         public int hello(int y)
@@ -69,11 +86,6 @@ namespace test
             string xmlfil = Server.MapPath("testEtik.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlfil);
-
-
-
-
-            List<TestClass> testlista = new List<TestClass>();
 
             XmlNodeList xmlLista = doc.SelectNodes("/testetik/testquestion");
 
@@ -100,7 +112,7 @@ namespace test
 
         //private void JillCreateXML()
         //{
-<<<<<<< HEAD
+
         //    //Create the XmlDocument.
         //    XmlDocument doc = new XmlDocument();
         //    doc.LoadXml(("<Student type='regular' Section='B'><Name>Tommy ex </ Name ></ Student > ")); 
@@ -157,7 +169,7 @@ namespace test
             {
                 //Load the XML File
                 doc.Load(@"C:\Users\Jillsan\Source\Repos\interaktiva_DC\test\jilltest.xml");
-=======
+
         //(källa : http://visualcsharptutorials.com/net-framework/writing-xml-file)
 
         //Create an xml document
@@ -198,7 +210,7 @@ namespace test
         //    {
         //        //Load the XML File
         //        doc.Load(PATH);
->>>>>>> refs/remotes/origin/camillasfirstbranch
+
 
                 //Get the root element
                 XmlElement root = doc.DocumentElement;
@@ -320,12 +332,7 @@ namespace test
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlfil);
 
-
-
-            List<TestClass> testlista = new List<TestClass>();
-
             XmlNodeList xmlLista = doc.SelectNodes("/testprodukter/testquestion");
-
 
             foreach (XmlNode nod in xmlLista)
             {
@@ -338,8 +345,8 @@ namespace test
                 testet.Answer2 = nod["answer2"].InnerText;
                 testet.Rightanswer = nod["rightanswer"].InnerText;
 
-
                 testlista.Add(testet);
+
             }
 
 
@@ -366,8 +373,8 @@ namespace test
 
         protected void BtnLamnain_Click(Object sender, EventArgs e)
         {
-           
-          
+
+            int testSum = 0;
             foreach (Control checkbox in form1.Controls)
             {
                 if (checkbox.GetType() == typeof(CheckBoxList))
@@ -381,24 +388,35 @@ namespace test
                         if (chkitem.Selected)
                         {
                             Response.Write(chkitem.Text);
-                        }
 
+                            TestClass correctanswer = new TestClass();
 
-                        TestClass correctanswer = new TestClass();
+                            correctanswer.id = checkbox.ID;
+                            correctanswer.chkanswer = chkitem.ToString();
+                            //correctanswer.Rightanswer = "Dollar";  // ska vi prova att hämta hem denna från xml?
 
-                        correctanswer.id = checkbox.ID;
-                        correctanswer.chkanswer = chkitem.ToString();
-                        correctanswer.Rightanswer = "Dollar"; 
-                        //correctanswer.Rightanswer = "Svar 1 ";
-
-                        testclasslist.Add(correctanswer);
-
-                        if (correctanswer.chkanswer == correctanswer.Rightanswer)
-                        {
-                            Response.Write("Rätt");
+                            testclasslist.Add(correctanswer);
                         }
 
                     }
+
+                    for (int i = 0; i < testlista.Count; i++)
+                    {
+                        if (testlista[i].Rightanswer == testclasslist[i].chkanswer)
+                        {
+                            Response.Write("Rätt");   //får utt dubbelrätt varför får vi in 2 korrekta objekt i listan, borde bara vara ett == dollar?
+                            testSum++;
+                        }
+                        else
+                        {
+                            Response.Write("fel");
+                        }
+
+
+                    }
+                    Response.Write(testSum);
+
+
                 }
             }
         }

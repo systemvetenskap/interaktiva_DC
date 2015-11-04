@@ -11,6 +11,7 @@ namespace test
     public partial class testet : System.Web.UI.Page
     {
         List<TestClass> testclasslist = new List<TestClass>();
+        List<TestClass> testlista = new List<TestClass>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -150,7 +151,7 @@ namespace test
                 testquestion.AppendChild(answer1);
                 testquestion.AppendChild(answer2);
 
-                doc.Save(@"C:\Users\Jillsan\Source\Repos\interaktiva_DC\test\jilltest.xml");
+               // doc.Save(@"C:\Users\Jillsan\Source\Repos\interaktiva_DC\test\jilltest.xml");
             }
             else //If there is already a file
             {
@@ -210,7 +211,7 @@ namespace test
 
 
 
-            List<TestClass> testlista = new List<TestClass>();
+           
 
             XmlNodeList xmlLista = doc.SelectNodes("/testprodukter/testquestion");
 
@@ -251,10 +252,13 @@ namespace test
 
         }
 
+      
+
+
 
         protected void BtnLamnain_Click(Object sender, EventArgs e)
         {
-           
+            int testSum = 0;
           
             foreach (Control checkbox in form1.Controls)
             {
@@ -269,24 +273,56 @@ namespace test
                         if (chkitem.Selected)
                         {
                             Response.Write(chkitem.Text);
+
+                            TestClass correctanswer = new TestClass();
+
+                            correctanswer.id = checkbox.ID;
+                            correctanswer.chkanswer = chkitem.ToString();
+                            //correctanswer.Rightanswer = "Dollar";  // ska vi prova att hämta hem denna från xml?
+
+                            
+
+                            testclasslist.Add(correctanswer);
                         }
 
 
-                        TestClass correctanswer = new TestClass();
-
-                        correctanswer.id = checkbox.ID;
-                        correctanswer.chkanswer = chkitem.ToString();
-                        correctanswer.Rightanswer = "Dollar"; 
                         //correctanswer.Rightanswer = "Svar 1 ";
 
-                        testclasslist.Add(correctanswer);
 
-                        if (correctanswer.chkanswer == correctanswer.Rightanswer)
-                        {
-                            Response.Write("Rätt");
                         }
 
-                    }
+                            for (int i = 0; i < testlista.Count; i++)
+                            {
+                                if (testlista[i].Rightanswer == testclasslist[i].chkanswer)
+                                {
+                                     Response.Write("Rätt");   //får utt dubbelrätt varför får vi in 2 korrekta objekt i listan, borde bara vara ett == dollar?
+                                     testSum ++;
+                                 }
+                            else
+                                 {
+                                     Response.Write("fel");
+                                 }
+
+                        
+                            }
+                            Response.Write(testSum);
+
+                    //foreach (TestClass item in testclasslist)
+                    //    {
+                    //        if (item.chkanswer == item.Rightanswer)
+                    //        {
+                    //            Response.Write("Rätt");   //får utt dubbelrätt varför får vi in 2 korrekta objekt i listan, borde bara vara ett == dollar?
+                    //            testSum++;
+                    //        }
+                    //        else
+                    //        {
+                    //             Response.Write("fel");
+                    //        }
+                    //    }
+
+
+
+
                 }
             }
         }

@@ -101,6 +101,7 @@ namespace test
 
         //private void JillCreateXML()
         //{
+<<<<<<< HEAD
         //    //Create the XmlDocument.
         //    XmlDocument doc = new XmlDocument();
         //    doc.LoadXml(("<Student type='regular' Section='B'><Name>Tommy ex </ Name ></ Student > ")); 
@@ -157,6 +158,48 @@ namespace test
             {
                 //Load the XML File
                 doc.Load(@"C:\Users\Jillsan\Source\Repos\interaktiva_DC\test\jilltest.xml");
+=======
+        //(källa : http://visualcsharptutorials.com/net-framework/writing-xml-file)
+
+        //Create an xml document
+        //XmlDocument doc = new XmlDocument();
+
+        //If there is no current file, then create a new one
+        //    if (!System.IO.File.Exists(PATH)) // denna path mäste vara beroende av den person som gör provet behöver kopplas till person id i databasen. 
+        //    {
+        //        //Create neccessary nodes
+        //        XmlDeclaration declaration = doc.CreateXmlDeclaration("1.0", "UTF-8", "yes");
+        //        XmlComment comment = doc.CreateComment("This is an XML Generated File");
+        //        XmlElement root = doc.CreateElement("answertest");
+        //        XmlElement testquestion = doc.CreateElement("testquestion");
+        //        XmlAttribute id = doc.CreateAttribute("id");
+        //        XmlElement question = doc.CreateElement("question");
+        //        XmlElement answer1 = doc.CreateElement("answer1");
+        //        XmlElement answer2 = doc.CreateElement("answer2");
+        //        XmlElement rightanswer1 = doc.CreateElement("rightanswer");
+        //        XmlElement gender = doc.CreateElement("Gender");
+
+        //        //Add the values for each nodes
+        //        name.Value = textBoxName.Text;
+        //        age.InnerText = textBoxAge.Text;
+        //        gender.InnerText = textBoxGender.Text;
+
+        //        //Construct the document
+        //        doc.AppendChild(declaration);
+        //        doc.AppendChild(comment);
+        //        doc.AppendChild(root);
+        //        root.AppendChild(person);
+        //        person.Attributes.Append(name);
+        //        person.AppendChild(age);
+        //        person.AppendChild(gender);
+
+        //        doc.Save(PATH);
+        //    }
+        //    else //If there is already a file
+        //    {
+        //        //Load the XML File
+        //        doc.Load(PATH);
+>>>>>>> refs/remotes/origin/camillasfirstbranch
 
                 //Get the root element
                 XmlElement root = doc.DocumentElement;
@@ -190,11 +233,80 @@ namespace test
            //reset alla knappar
         }
 
+        List<TestClass> answerlist = new List<TestClass>();
 
-
-
-        private void TestCheck()
+        private void PutTestIntoList(string id, string question, string answer1, string answer2, string answer3, string rightAnswer, string theAnswer, string group, List<TestClass> objektslista)
         {
+            
+            string nyid = id;
+            string nyQuestion= question;
+            string nyAnswer1 = answer1;
+            string nyAnswer2= answer2 ;
+            string nyAnswer3= answer3;
+            string nyRightanswer = rightAnswer;
+            string nyTheAnswer= theAnswer;
+            string nyGroup = group;
+            
+
+            // out objektslista...
+
+            //skapa ett objekt av detta och lägg i en lista.
+
+       }
+
+
+    private void TestCheck(List<TestClass> objektslista)//måste skicka in en objektslista med group,svar och rätt svar
+        {
+            int sumTotal = 0;  // kan itne ligga här för då nollas de varje gång denan körs... jo nu...
+            int sumEtik = 0;
+            int sumEkonomi = 0;
+            int sumProdukter = 0;
+
+
+            foreach (TestClass objekt in objektslista)
+                {
+
+                string answer = objekt.TheAnswer;
+                string rightanswer = objekt.Rightanswer;
+                string group = objekt.Group;                
+
+
+
+            if (answer == rightanswer && group == "Etik och regelverk")
+                {
+                    sumEtik++;
+                    sumTotal++;
+
+                }
+                else if (answer == rightanswer && group == "Ekonomi")
+                {
+                    sumEkonomi++;
+                    sumTotal++;
+                }
+                else if (answer == rightanswer && group == "Produkter och hantering")
+                {
+                    sumProdukter++;
+                    sumTotal++;
+                }
+                else
+                {
+                    //  sumTotal = sumTotal; skriver inte ut detta
+                }
+            }
+
+
+
+            //ev sumTotal = sumEktik+sumEkonomi+sumProdukter;
+
+            if (sumTotal >= 70 && sumEtik >= 60 && sumEkonomi >= 60 && sumProdukter >= 60)  /// procent!!!!!!!!!!
+            {
+                //Grattis du klarade provet
+            }
+            else
+            {
+                //du klarade dessvärre inte provet. Vill du se de rätta svaren?
+            }
+
 
         }
 

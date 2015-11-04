@@ -13,6 +13,7 @@ namespace test
         public string Answer2 { get; set; }
         public string Answer3 { get; set; }
         public string Rightanswer { get; set; }
+        public string TheAnswer { get; set; }
         public string Group { get; set; }
         public string chkanswer { get; set; }
 

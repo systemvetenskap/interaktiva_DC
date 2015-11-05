@@ -1,0 +1,22 @@
+﻿<testekonomi>
+
+  <testquestion id="1">
+    <question>Vilka valutor är bäst att använda?</question>
+    <answer1>dollar</answer1>
+    <answer2>skr</answer2>
+    <rightanswer>dollar</rightanswer>
+    <group>Ekonomi</group>
+  </testquestion>
+  
+  <testquestion id="2">
+    <question>Vilken ekonomi är bäst?</question>
+    <answer1>svar1</answer1>
+    <answer2>svar2</answer2>
+    <answer3>svar3</answer3>
+    <rightanswer>svar2</rightanswer>
+    <group>Ekonomi</group>
+  </testquestion>
+
+  </testekonomi>
+
+

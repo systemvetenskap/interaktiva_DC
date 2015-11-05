@@ -80,7 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="testEkonomi.xml" />
     <Content Include="testet.aspx" />
+    <Content Include="testEtik.xml" />
+    <Content Include="testProdukter.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

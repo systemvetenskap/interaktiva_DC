@@ -13,36 +13,40 @@ namespace test
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadTestProdukterClass();
-            LoadTestEkonomiClass();
-            LoadTestEtikClass();
+            //LoadTestProdukterClass();
+            LoadTestClass();
+            //LoadTestEtikClass();
 
         }
 
-        private void LoadTestEkonomiClass()
+        private void LoadTestClass()
         {
             string xmlfil = Server.MapPath("testEkonomi.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlfil);
-
-
-
-
-            List<TestClass> testlista = new List<TestClass>();
-
+            
+            List<ClassQuestions> testlista = new List<ClassQuestions>();
             XmlNodeList xmlLista = doc.SelectNodes("/testekonomi/testquestion");
 
 
             foreach (XmlNode nod in xmlLista)
             {
-                TestClass testet = new TestClass();
+                ClassQuestions testet = new ClassQuestions();
 
-                testet.id = nod.Attributes["id"].Value;
+                testet.Id = nod.Attributes["id"].Value;
                 testet.Group = nod["group"].InnerText;
                 testet.Question = nod["question"].InnerText;
-                testet.Answer1 = nod["answer1"].InnerText;
-                testet.Answer2 = nod["answer2"].InnerText;
-                testet.Rightanswer = nod["rightanswer"].InnerText;
+
+
+
+                ClassAnswers answeroption = new ClassAnswers();
+                answeroption.Answer1 = nod["answer1"].InnerText;
+                answeroption.Answer2 = nod["answer2"].InnerText;
+
+
+
+                ClassRightAnswer rightanswer = new ClassRightAnswer();
+                rightanswer.Rightanswer1 = nod["rightanswer"].InnerText;
 
 
                 testlista.Add(testet);
@@ -88,14 +92,57 @@ namespace test
             Repeater2.DataBind();
         }
 
+       
+
+
+
+            
+
+        private void LoadTestProdukterClass()
+        {
+            string xmlfil = Server.MapPath("testProdukter.xml");
+            XmlDocument doc = new XmlDocument();
+            doc.Load(xmlfil);
+
+
+
+            List<TestClass> testlista = new List<TestClass>();
+
+            XmlNodeList xmlLista = doc.SelectNodes("/testprodukter/testquestion");
+
+
+            foreach (XmlNode nod in xmlLista)
+            {
+                TestClass testet = new TestClass();
+
+                testet.id = nod.Attributes["id"].Value;
+                testet.Group = nod["group"].InnerText;
+                testet.Question = nod["question"].InnerText;
+                testet.Answer1 = nod["answer1"].InnerText;
+                testet.Answer2 = nod["answer2"].InnerText;
+                testet.Rightanswer = nod["rightanswer"].InnerText;
+
+
+                testlista.Add(testet);
+            }
+
+
+            Repeater3.DataSource = testlista;
+            Repeater3.DataBind();
+        }
+
+
+    }
+}
+
         //private void CreateAndLoadInToXML(string personId)   //denna metod är under uppbyggnad inte alls klar!!!!!
         //{
-            //(källa : http://visualcsharptutorials.com/net-framework/writing-xml-file)
+        //(källa : http://visualcsharptutorials.com/net-framework/writing-xml-file)
 
-            //Create an xml document
-            //XmlDocument doc = new XmlDocument();
+        //Create an xml document
+        //XmlDocument doc = new XmlDocument();
 
-            //If there is no current file, then create a new one
+        //If there is no current file, then create a new one
         //    if (!System.IO.File.Exists(PATH)) // denna path mäste vara beroende av den person som gör provet behöver kopplas till person id i databasen. 
         //    {
         //        //Create neccessary nodes
@@ -168,84 +215,41 @@ namespace test
 
 
 
-        private void TestCheck()
-        {
 
-        }
-
-        private void CollectAnsweList()
-        {
-
-        }
-
-        private void LoadTestProdukterClass()
-        {
-            string xmlfil = Server.MapPath("testProdukter.xml");
-            XmlDocument doc = new XmlDocument();
-            doc.Load(xmlfil);
+        //private void getXML()
+        //{
+        //    string xmlfil = Server.MapPath("test.xml");
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.Load(xmlfil);
 
 
+        //    XmlNodeList test = doc.SelectNodes("/test/testquestion");
+        //    //Label1.Text = test.InnerText;
 
-            List<TestClass> testlista = new List<TestClass>();
-
-            XmlNodeList xmlLista = doc.SelectNodes("/testprodukter/testquestion");
-
-
-            foreach (XmlNode nod in xmlLista)
-            {
-                TestClass testet = new TestClass();
-
-                testet.id = nod.Attributes["id"].Value;
-                testet.Group = nod["group"].InnerText;
-                testet.Question = nod["question"].InnerText;
-                testet.Answer1 = nod["answer1"].InnerText;
-                testet.Answer2 = nod["answer2"].InnerText;
-                testet.Rightanswer = nod["rightanswer"].InnerText;
+        //    //Label1.Text = "frågor: ";
 
 
-                testlista.Add(testet);
-            }
+        //    //foreach (XmlNode nod in test)
+        //    //{
+
+        //    //    Label1.Text += nod["question"].InnerText + " " ;
+        //    //}
 
 
-            Repeater3.DataSource = testlista;
-            Repeater3.DataBind();
-        }
+        //    /*string xmlfil = Server.MapPath("aktielista.xml");
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.Load(xmlfil);
 
+        //    XmlNode foretag = doc.SelectSingleNode("/aktiebolag/foretag/namn");
+        //    Label1.Text = foretag.InnerText;
 
-        private void getXML()
-        {
-            string xmlfil = Server.MapPath("test.xml");
-            XmlDocument doc = new XmlDocument();
-            doc.Load(xmlfil);
-
-
-            XmlNodeList test = doc.SelectNodes("/test/testquestion");
-            //Label1.Text = test.InnerText;
-
-            //Label1.Text = "frågor: ";
-
-
-            //foreach (XmlNode nod in test)
-            //{
-
-            //    Label1.Text += nod["question"].InnerText + " " ;
-            //}
-
-
-            /*string xmlfil = Server.MapPath("aktielista.xml");
-            XmlDocument doc = new XmlDocument();
-            doc.Load(xmlfil);
-
-            XmlNode foretag = doc.SelectSingleNode("/aktiebolag/foretag/namn");
-            Label1.Text = foretag.InnerText;
-
-            Label2.Text = "Aktiebolag: ";
-            XmlNodeList foretagsnamnlista = doc.SelectNodes("/aktiebolag/foretag");
-            foreach (XmlNode nod in foretagsnamnlista)
-            {
-                Label2.Text += nod["namn"].InnerText + " ";
-            }*/
-        }
+        //    Label2.Text = "Aktiebolag: ";
+        //    XmlNodeList foretagsnamnlista = doc.SelectNodes("/aktiebolag/foretag");
+        //    foreach (XmlNode nod in foretagsnamnlista)
+        //    {
+        //        Label2.Text += nod["namn"].InnerText + " ";
+        //    }*/
+        //}
 
     }
 }

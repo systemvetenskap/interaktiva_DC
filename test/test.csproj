@@ -70,6 +70,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="jilltest.xml" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -80,7 +81,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="test.xml" />
+    <Content Include="testEkonomi.xml" />
     <Content Include="testet.aspx" />
+    <Content Include="testEtik.xml" />
+    <Content Include="testProdukter.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

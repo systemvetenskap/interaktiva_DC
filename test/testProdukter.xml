@@ -1,0 +1,31 @@
+﻿<testprodukter>
+
+<testquestion id="1">
+<question>Vilken produkt är den viktigaste?</question>
+<answer1>Kaffemaskinen</answer1>
+<answer2>kakburken</answer2>
+  <rightanswer>kaffemaskinen</rightanswer>
+<group>Produkter och hantering</group>
+</testquestion>
+
+
+<testquestion id="3">
+<question>Vilken produkt är den viktigaste?</question>
+  <answer1>svar1</answer1>
+  <answer2>svar2</answer2>
+  <answer3>svar3</answer3>
+  <rightanswer>svar2</rightanswer>
+  <group>Produkter och hantering</group>
+</testquestion>
+  
+  <testquestion id="4">
+<question>Vilken produkt är den viktigaste?</question>
+<answer1>hoppmattan</answer1>
+<answer2>krattan</answer2>
+  <rightanswer>hoppmattan</rightanswer>
+<group>Produkter och hantering</group>
+</testquestion>
+
+
+</testprodukter>
+

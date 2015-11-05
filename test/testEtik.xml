@@ -1,0 +1,21 @@
+﻿<testetik>
+
+<testquestion id="1">
+<question>Vem är snällast</question>
+ <answer1>nalle</answer1>
+ <answer2>kanin</answer2>
+ <rightanswer>nalle</rightanswer>
+ <group>Etik och regelverk</group>
+</testquestion>
+ 
+
+<testquestion id="2">
+<question>vem gör rätt?</question>
+  <answer1>nalle</answer1>
+  <answer2>kanin</answer2>
+  <answer3>svar3</answer3>
+  <rightanswer>kanin</rightanswer>
+  <group>Etik och regelverk</group>
+</testquestion>
+
+</testetik>

@@ -20,39 +20,18 @@ namespace test
         {
             if (!IsPostBack)
             {
-                BindXmlToCheckBoxList();
+               
                 
             }
 
             //LoadTestProdukterClass();
-           // LoadTestEkonomiClass();
+            LoadTestEkonomiClass();
             //LoadTestEtikClass();
             // CreateAndLoadInToXML();
 
         }
 
-        private void BindXmlToCheckBoxList()
-        { 
-            string filePath = Server.MapPath("~/testEkonomi.xml");
-
-            using (DataSet ds = new DataSet())
-            {
-
-                ds.ReadXml(filePath);
-
-                cbltestEkonomi.DataSource = ds;
-                cbltestEkonomi.DataValueField = "id";
-                cbltestEkonomi.DataTextField = "question";
-                cbltestEkonomi.DataTextField = "answer1";
-                cbltestEkonomi.DataTextField = "answer1";
-                //cbltestEkonomi.DataSource = "id";
-                cbltestEkonomi.DataBind();
-
-            }
-
-            Repeater1.DataSource = ds;
-            Repeater1.DataBind();
-        }
+     
 
         private void LoadTestEkonomiClass()
         {
@@ -76,8 +55,8 @@ namespace test
                 testlista.Add(testet);
             }
 
-            //Repeater1.DataSource = testlista;
-            //Repeater1.DataBind();
+            Repeater1.DataSource = testlista;
+            Repeater1.DataBind();
         }
 
         public int hello(int y)

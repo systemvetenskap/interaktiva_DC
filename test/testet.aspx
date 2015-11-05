@@ -54,16 +54,12 @@
 		        <%--<p><%# Eval("answer1")%></p>
                 <p><%# Eval("answer2")%></p>--%>
                            
-                      <asp:CheckBoxList ID="cbltestEkonomi" runat="server"></asp:CheckBoxList>
+             <asp:CheckBoxList ID="cbltestEkonomi" runat="server"></asp:CheckBoxList>
                  
-<%--<%--                  <form>
-     <%--<asp:ListItem Value="answer1">"answer1"</asp:ListItem>
-                          <asp:ListItem Value="answer2">"answer2"</asp:ListItem><%--<%# Eval("answer2")%>--%>--%>
-                       <%--<asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>--%>
-                     <%-- <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
-                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
-                  --%>
-               <%-- </form>--%>
+             <asp:ListItem Value="answer1">"answer1"</asp:ListItem>
+             <asp:ListItem Value="answer2">"answer2"</asp:ListItem>
+                  
+              
                   
 <%-- här behöver jag skriva lämna in svar på radio och <%#Eval("rightanswer")%> till metod rätta. om radio.text???? == <%#Eval("rightanswer")%>    --%>
                   

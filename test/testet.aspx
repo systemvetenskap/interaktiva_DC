@@ -51,7 +51,7 @@
                 <p><%# Eval("answer2")%></p>--%>
 
                   <form>
-                       <%--<asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>--%>
+                       <asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
                       <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
                       <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
                   
@@ -124,10 +124,10 @@
 
                   <form>
                        
-                     <%-- <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
-                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>--%>
-                      <if answer2.checked></if>
-                      <asp:RadioButton ID="RadioButton1" runat="server" />
+                      <p> <input type="radio" name="group1" value="answer1"><%# Eval("answer1")%></p> 
+                      <p> <input type="radio" name="group1" value="answer2"><%# Eval("answer2")%></p>
+                    <%--  <if answer2.checked></if>--%>
+                      <%--<asp:RadioButton ID="RadioButton1" runat="server" />--%>
                   </form>
                   
  
@@ -142,11 +142,11 @@
                
              </article>
              <article>
-                 <form>  
+                
                      
                    <button onclick="document.write(5 + 6)">Lämna in</button>
 
-                 </form>
+     
                
 
              </article> 

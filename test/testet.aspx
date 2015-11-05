@@ -46,10 +46,7 @@
               </headerTemplate>
                 
 		      <itemTemplate>
-               <%--  
-                <div class = <%# (Container.ItemIndex+1)%2==0  ? "sekton sektion-mitten":"sektion" %> "sektion sektion-1a mobil" >
-	           <img title ="en motorbåt i Smögens hamn" src="bilder/bat.jpg" alt="en motorbåt i Smögens hamn" ><!--width="100%" height="auto"-->--%>
-		        
+             		        
                 <h2><%# Eval("question")%></h2>
 		        <%--<p><%# Eval("answer1")%></p>
                 <p><%# Eval("answer2")%></p>--%>
@@ -80,7 +77,7 @@
          </asp:Repeater>  
                
               <asp:Button ID="BtnLamnain" runat="server" Text="Lämna in" />   
-             <%--  </article>--%>--%>
+             <%--    </article>    --%>
                </article>
               </form>
 

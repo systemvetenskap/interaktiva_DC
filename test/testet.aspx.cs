@@ -18,11 +18,15 @@ namespace test
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                BindXmlToCheckBoxList();
+
+
+
+
+            //if (!IsPostBack)
+            //{
+            //    BindXmlToCheckBoxList();
                 
-            }
+            //}
 
             //LoadTestProdukterClass();
            // LoadTestEkonomiClass();
@@ -31,28 +35,28 @@ namespace test
 
         }
 
-        private void BindXmlToCheckBoxList()
-        { 
-            string filePath = Server.MapPath("~/testEkonomi.xml");
+        //private void BindXmlToCheckBoxList()
+        //{ 
+        //    string filePath = Server.MapPath("~/testEkonomi.xml");
 
-            using (DataSet ds = new DataSet())
-            {
+        //    using (DataSet ds = new DataSet())
+        //    {
 
-                ds.ReadXml(filePath);
+        //        ds.ReadXml(filePath);
 
-                cbltestEkonomi.DataSource = ds;
-                cbltestEkonomi.DataValueField = "id";
-                cbltestEkonomi.DataTextField = "question";
-                cbltestEkonomi.DataTextField = "answer1";
-                cbltestEkonomi.DataTextField = "answer1";
-                //cbltestEkonomi.DataSource = "id";
-                cbltestEkonomi.DataBind();
+        //        //cbltestEkonomi.DataSource = ds;
+        //        //cbltestEkonomi.DataValueField = "id";
+        //        //cbltestEkonomi.DataTextField = "question";
+        //        //cbltestEkonomi.DataTextField = "answer1";
+        //        //cbltestEkonomi.DataTextField = "answer1";
+        //        ////cbltestEkonomi.DataSource = "id";
+        //        //cbltestEkonomi.DataBind();
 
-            }
+        //    }
 
-            Repeater1.DataSource = ds;
-            Repeater1.DataBind();
-        }
+        //    Repeater1.DataSource = ds;
+        //    Repeater1.DataBind();
+        //}
 
         private void LoadTestEkonomiClass()
         {

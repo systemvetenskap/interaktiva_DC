@@ -55,9 +55,10 @@
                 <p><%# Eval("answer2")%></p>--%>
                            
              <asp:CheckBoxList ID="cbltestEkonomi" runat="server"></asp:CheckBoxList>
-                 
-             <asp:ListItem Value="answer1">"answer1"</asp:ListItem>
-             <asp:ListItem Value="answer2">"answer2"</asp:ListItem>
+           
+            <asp:ListItem Value="1">Aktier</asp:ListItem>
+            <asp:ListItem Value="2">Värdepapper</asp:ListItem>
+
                   
               
                   

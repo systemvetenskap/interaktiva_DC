@@ -34,7 +34,11 @@
                 </div>
           <div class="maincontent">
           
-          
+
+              <asp:Panel ID="panel" runat="server"
+              commandArgument ="loadtest()"    
+                  
+              ></asp:Panel>
            </div> 
          </div>
 

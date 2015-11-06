@@ -10,6 +10,9 @@ namespace test
 {
     public partial class testet : System.Web.UI.Page
     {
+        List<ClassQuestions> testlista;
+        List<ClassAnswers> answerlist;
+        List<ClassRightAnswer> rightanswerlist;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,19 +26,19 @@ namespace test
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlfil);
             
-            List<ClassQuestions> testlista = new List<ClassQuestions>();
+            testlista = new List<ClassQuestions>();
             XmlNodeList xmlLista = doc.SelectNodes("/test/testquestion");
 
 
 
             foreach (XmlNode nod in xmlLista)
             {
-                ClassQuestions test = new ClassQuestions(nod.Attributes["id"].Value, nod["nr"].Value, Convert.ToInt32(nod["amountofanswers"].Value), nod["question"].InnerText, nod["group"].InnerText, Convert.ToInt32(nod["amountofrightanswers"].Value) );
+                ClassQuestions test = new ClassQuestions(nod.Attributes["id"].Value, Convert.ToInt32(nod["nr"].Value), Convert.ToInt32(nod["amountofanswers"].Value), nod["question"].InnerText, nod["group"].InnerText, Convert.ToInt32(nod["amountofrightanswers"].Value) );
                 ClassAnswers answer = new ClassAnswers();
                 ClassRightAnswer rightanswer = new ClassRightAnswer();
 
                 test.Id = nod.Attributes["id"].Value;
-                test.Nr = nod["nr"].Value;
+                test.Nr = Convert.ToInt32(nod["nr"].Value);
                 test.Group = nod["group"].InnerText;
                 test.Question = nod["question"].InnerText;
                 test.AmountOfAnswers = Convert.ToInt32(nod["amountofanswers"].Value);
@@ -96,11 +99,80 @@ namespace test
                 
             }
 
-
             //Repeater1.DataSource = testlista;
             //Repeater1.DataBind();
         }
 
+        private void Loadtest()
+        {
+            Response.Write("det gick!");
+            //ListItem item = new ListItem();
+            //Panel panel = new Panel();
+            //CheckBoxList cblist = new CheckBoxList();
+
+            //for (int i = 0; i < testlista.Count ; i++)
+            //{
+            //    foreach (ClassQuestions fraga in testlista)
+            //    {
+            //        panel = new Panel();
+            //        //panel.CssClass = "checkbox";
+            //        panel.GroupingText = fraga.Question;
+
+                    
+            //        cblist = new CheckBoxList();
+
+            //        cblist.ID = fraga.Nr.ToString();
+            //        cblist.CssClass = "checkbox checkboxlist col-sm-9";
+
+
+            //        foreach (ClassAnswers svar in answerlist)
+            //        {
+            //            if (//här vill jag får ut om classQuestion amountofanswers ==1 )
+            //            {
+            //                item.Text = svar.Answer1;
+            //            }
+
+            //            else if (test.AmountOfAnswers == 2)
+            //            {
+            //                answer.Answer1 = nod["answer1"].InnerText;
+            //                answer.Answer2 = nod["answer2"].InnerText;
+            //            }
+            //            else if (test.AmountOfAnswers == 3)
+            //            {
+            //                answer.Answer1 = nod["answer1"].InnerText;
+            //                answer.Answer2 = nod["answer2"].InnerText;
+            //                answer.Answer3 = nod["answer3"].InnerText;
+            //            }
+
+            //            else if (test.AmountOfAnswers == 4)
+            //            {
+            //                answer.Answer1 = nod["answer1"].InnerText;
+            //                answer.Answer2 = nod["answer2"].InnerText;
+            //                answer.Answer3 = nod["answer3"].InnerText;
+            //                answer.Answer4 = nod["answer4"].InnerText;
+            //            }
+
+            //            else
+            //            {
+            //                Response.Write("Felmeddelande: För många svar att hämat hem från xml, kontakta din IT support!");
+            //            }
+
+
+
+
+            //            item = new ListItem();
+            //            item.Text = svar.Answer1;
+            //            item.Value = svar.Nummer.ToString();
+            //            item.Text = svar.Text;
+            //            cb.Items.Add(item);
+            //        }
+
+            //        panel.Controls.Add(cb);
+            //        this.Panel1.Controls.Add(panel);
+
+            //    }
+            //}
+        }
 
         private void LoadTestEtikClass()
         {
@@ -132,8 +204,8 @@ namespace test
             }
 
 
-            Repeater2.DataSource = testlista;
-            Repeater2.DataBind();
+            //Repeater2.DataSource = testlista;
+            //Repeater2.DataBind();
         }
 
        
@@ -171,8 +243,8 @@ namespace test
             }
 
 
-            Repeater3.DataSource = testlista;
-            Repeater3.DataBind();
+            //Repeater3.DataSource = testlista;
+            //Repeater3.DataBind();
         }
 
 
@@ -295,5 +367,4 @@ namespace test
         //    }*/
         //}
 
-    }
-}
+  

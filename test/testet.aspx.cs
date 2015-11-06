@@ -13,57 +13,94 @@ namespace test
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //LoadTestProdukterClass();
             LoadTestClass();
-            //LoadTestEtikClass();
-
+         
         }
 
         private void LoadTestClass()
         {
-            string xmlfil = Server.MapPath("testEkonomi.xml");
+            string xmlfil = Server.MapPath("test.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(xmlfil);
             
             List<ClassQuestions> testlista = new List<ClassQuestions>();
-            XmlNodeList xmlLista = doc.SelectNodes("/testekonomi/testquestion");
+            XmlNodeList xmlLista = doc.SelectNodes("/test/testquestion");
+
 
 
             foreach (XmlNode nod in xmlLista)
             {
-                ClassQuestions test = new ClassQuestions(nod.Attributes["id"].Value,nod.Attributes["nr"]);
+                ClassQuestions test = new ClassQuestions(nod.Attributes["id"].Value, nod["nr"].Value, Convert.ToInt32(nod["amountofanswers"].Value), nod["question"].InnerText, nod["group"].InnerText, Convert.ToInt32(nod["amountofrightanswers"].Value) );
+                ClassAnswers answer = new ClassAnswers();
+                ClassRightAnswer rightanswer = new ClassRightAnswer();
 
                 test.Id = nod.Attributes["id"].Value;
+                test.Nr = nod["nr"].Value;
                 test.Group = nod["group"].InnerText;
                 test.Question = nod["question"].InnerText;
+                test.AmountOfAnswers = Convert.ToInt32(nod["amountofanswers"].Value);
+                test.Group = nod["group"].InnerText;
+                test.AmountOfRightAnswers = Convert.ToInt32(nod["amountofrightanswers"].Value);
+
+              
+                if (test.AmountOfAnswers  == 1)
+                {
+                    answer.Answer1 = nod["answer1"].InnerText;
+                }
+
+               else if (test.AmountOfAnswers == 2)
+                {
+                    answer.Answer1 = nod["answer1"].InnerText;
+                    answer.Answer2 = nod["answer2"].InnerText;
+                }
+                else if (test.AmountOfAnswers == 3)
+                {
+                    answer.Answer1 = nod["answer1"].InnerText;
+                    answer.Answer2 = nod["answer2"].InnerText;
+                    answer.Answer3 = nod["answer3"].InnerText;
+                }
+
+                else if (test.AmountOfAnswers == 4)
+                {
+                    answer.Answer1 = nod["answer1"].InnerText;
+                    answer.Answer2 = nod["answer2"].InnerText;
+                    answer.Answer3 = nod["answer3"].InnerText;
+                    answer.Answer4 = nod["answer4"].InnerText;
+                }
+
+                else
+                {
+                    Response.Write("Felmeddelande: För många svar att hämat hem från xml, kontakta din IT support!");
+                }
 
 
+                if (test.AmountOfRightAnswers == 1)
+                {
+                    rightanswer.Rightanswer1 = nod["rightanswer1"].InnerText;
+                }
+                else if (test.AmountOfRightAnswers == 2)
+                {
+                    rightanswer.Rightanswer1 = nod["rightanswer1"].InnerText;
+                    rightanswer.Rightanswer2 = nod["rightanswer2"].InnerText;
+                }
+                else
+                {
+                    Response.Write("Felmeddelande: För många rättasvar att hämat hem från xml, kontakta din IT support!");
+                }
 
-                ClassAnswers answeroption = new ClassAnswers();
-                answeroption.Answer1 = nod["answer1"].InnerText;
-                answeroption.Answer2 = nod["answer2"].InnerText;
-
-
-
-                ClassRightAnswer rightanswer = new ClassRightAnswer();
-                rightanswer.Rightanswer1 = nod["rightanswer"].InnerText;
 
 
                 testlista.Add(test);
-                
-               
-                //List<ClassAnswers> answerlist = new List<ClassAnswers>();
-                //answerlist.Add(answeroption);
+                test.answerlist.Add(answer);
+                test.rightanswerlist.Add(rightanswer);
                 
             }
 
 
-            Repeater1.DataSource = testlista;
-            Repeater1.DataBind();
+            //Repeater1.DataSource = testlista;
+            //Repeater1.DataBind();
         }
 
-
-        private void Load
 
         private void LoadTestEtikClass()
         {

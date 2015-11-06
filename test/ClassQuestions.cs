@@ -15,7 +15,7 @@ namespace test
         public string Question { get; set; }
         public string Group { get; set; }
        
-        List<ClassAnswers> anwerlist = new List<ClassAnswers>();
+        List<ClassAnswers> answerlist = new List<ClassAnswers>();
         List<ClassRightAnswer> rightanswerlist = new List<ClassRightAnswer>();
     }
 }

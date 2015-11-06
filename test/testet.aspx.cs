@@ -31,7 +31,7 @@ namespace test
 
             foreach (XmlNode nod in xmlLista)
             {
-                ClassQuestions test = new ClassQuestions();
+                ClassQuestions test = new ClassQuestions(nod.Attributes["id"].Value,nod.Attributes["nr"]);
 
                 test.Id = nod.Attributes["id"].Value;
                 test.Group = nod["group"].InnerText;

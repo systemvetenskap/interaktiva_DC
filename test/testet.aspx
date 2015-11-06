@@ -32,12 +32,14 @@
                         <li><a href="#">Personal</a></li>
                    </ul>
                 </div>
+
           <div class="maincontent">
-          
+              
+              <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
           
            </div> 
          </div>
-
+             
               <div class="footer">
                  
                   
@@ -45,6 +47,6 @@
                  <p title="© 2015 JE-Bank AB (publ)">© 2015 JE-Bank AB (publ) <br />Jill Lindqvist och Camilla Hoff</p>
               </div>
 
-                
+          
     </body>
 </html>

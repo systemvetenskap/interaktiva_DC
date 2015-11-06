@@ -14,7 +14,7 @@ namespace test
         protected void Page_Load(object sender, EventArgs e)
         {
             //LoadTestProdukterClass();
-            LoadTestClass();
+            //LoadTestClass();
             //LoadTestEtikClass();
 
         }
@@ -29,41 +29,41 @@ namespace test
             XmlNodeList xmlLista = doc.SelectNodes("/testekonomi/testquestion");
 
 
-            foreach (XmlNode nod in xmlLista)
-            {
-                ClassQuestions test = new ClassQuestions(nod.Attributes["id"].Value,nod.Attributes["nr"]);
+            //foreach (XmlNode nod in xmlLista)
+            //{
+            //    ClassQuestions test = new ClassQuestions(nod.Attributes["id"].Value,nod.Attributes["nr"]);
 
-                test.Id = nod.Attributes["id"].Value;
-                test.Group = nod["group"].InnerText;
-                test.Question = nod["question"].InnerText;
-
-
-
-                ClassAnswers answeroption = new ClassAnswers();
-                answeroption.Answer1 = nod["answer1"].InnerText;
-                answeroption.Answer2 = nod["answer2"].InnerText;
+            //    test.Id = nod.Attributes["id"].Value;
+            //    test.Group = nod["group"].InnerText;
+            //    test.Question = nod["question"].InnerText;
 
 
 
-                ClassRightAnswer rightanswer = new ClassRightAnswer();
-                rightanswer.Rightanswer1 = nod["rightanswer"].InnerText;
+            //    ClassAnswers answeroption = new ClassAnswers();
+            //    answeroption.Answer1 = nod["answer1"].InnerText;
+            //    answeroption.Answer2 = nod["answer2"].InnerText;
 
 
-                testlista.Add(test);
+
+            //    ClassRightAnswer rightanswer = new ClassRightAnswer();
+            //    rightanswer.Rightanswer1 = nod["rightanswer"].InnerText;
+
+
+            //    testlista.Add(test);
                 
                
-                //List<ClassAnswers> answerlist = new List<ClassAnswers>();
-                //answerlist.Add(answeroption);
+            //    //List<ClassAnswers> answerlist = new List<ClassAnswers>();
+            //    //answerlist.Add(answeroption);
                 
-            }
+            //}
 
 
-            Repeater1.DataSource = testlista;
-            Repeater1.DataBind();
+            //Repeater1.DataSource = testlista;
+            //Repeater1.DataBind();
         }
 
 
-        private void Load
+       
 
         private void LoadTestEtikClass()
         {
@@ -95,8 +95,8 @@ namespace test
             }
 
 
-            Repeater2.DataSource = testlista;
-            Repeater2.DataBind();
+            //Repeater2.DataSource = testlista;
+            //Repeater2.DataBind();
         }
 
        
@@ -134,8 +134,8 @@ namespace test
             }
 
 
-            Repeater3.DataSource = testlista;
-            Repeater3.DataBind();
+            //Repeater3.DataSource = testlista;
+            //Repeater3.DataBind();
         }
 
 
@@ -257,6 +257,3 @@ namespace test
         //        Label2.Text += nod["namn"].InnerText + " ";
         //    }*/
         //}
-
-    }
-}

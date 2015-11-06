@@ -31,11 +31,11 @@ namespace test
 
             foreach (XmlNode nod in xmlLista)
             {
-                ClassQuestions testet = new ClassQuestions();
+                ClassQuestions test = new ClassQuestions();
 
-                testet.Id = nod.Attributes["id"].Value;
-                testet.Group = nod["group"].InnerText;
-                testet.Question = nod["question"].InnerText;
+                test.Id = nod.Attributes["id"].Value;
+                test.Group = nod["group"].InnerText;
+                test.Question = nod["question"].InnerText;
 
 
 
@@ -49,7 +49,12 @@ namespace test
                 rightanswer.Rightanswer1 = nod["rightanswer"].InnerText;
 
 
-                testlista.Add(testet);
+                testlista.Add(test);
+                
+               
+                //List<ClassAnswers> answerlist = new List<ClassAnswers>();
+                //answerlist.Add(answeroption);
+                
             }
 
 
@@ -57,6 +62,8 @@ namespace test
             Repeater1.DataBind();
         }
 
+
+        private void Load
 
         private void LoadTestEtikClass()
         {

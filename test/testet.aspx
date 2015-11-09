@@ -36,10 +36,17 @@
           
 
               <asp:Panel ID="panel" runat="server"
-              commandArgument ="loadtest()"    
-                  
-              ></asp:Panel>
+              commandArgument ="loadtest()">
+
+                  <asp:CheckBoxList ID="question1" runat="server">
+                      <ListItem>
+
+                  </asp:CheckBoxList>
+
+              </asp:Panel>
            </div> 
+
+
          </div>
 
               <div class="footer">

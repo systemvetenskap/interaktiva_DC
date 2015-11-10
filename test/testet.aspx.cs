@@ -11,8 +11,8 @@ namespace test
     public partial class testet : System.Web.UI.Page
     {
         List<ClassQuestions> testlista;
-        List<ClassAnswers> answerlist;
-        List<ClassRightAnswer> rightanswerlist;
+        //List<ClassAnswers> answerlist;
+        //List<ClassRightAnswer> rightanswerlist;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,41 +29,44 @@ namespace test
             testlista = new List<ClassQuestions>();
             XmlNodeList xmlLista = doc.SelectNodes("/test/testquestion");
 
+            try
+            {
 
+           
 
             foreach (XmlNode nod in xmlLista)
             {
-                ClassQuestions test = new ClassQuestions(nod.Attributes["id"].Value, Convert.ToInt32(nod["nr"].Value), Convert.ToInt32(nod["amountofanswers"].Value), nod["question"].InnerText, nod["group"].InnerText, Convert.ToInt32(nod["amountofrightanswers"].Value) );
+                ClassQuestions test = new ClassQuestions (nod.Attributes["id"].Value, nod["nr"].InnerText, nod["amountofanswers"].InnerText, nod["question"].InnerText, nod["group"].InnerText, (nod["amountofrightanswers"].InnerText) );
                 ClassAnswers answer = new ClassAnswers();
                 ClassRightAnswer rightanswer = new ClassRightAnswer();
 
                 test.Id = nod.Attributes["id"].Value;
-                test.Nr = Convert.ToInt32(nod["nr"].Value);
+                test.Nr = nod["nr"].Value;
                 test.Group = nod["group"].InnerText;
                 test.Question = nod["question"].InnerText;
-                test.AmountOfAnswers = Convert.ToInt32(nod["amountofanswers"].Value);
+                test.AmountOfAnswers = nod["amountofanswers"].Value;
                 test.Group = nod["group"].InnerText;
-                test.AmountOfRightAnswers = Convert.ToInt32(nod["amountofrightanswers"].Value);
+                test.AmountOfRightAnswers = nod["amountofrightanswers"].Value;
 
               
-                if (test.AmountOfAnswers  == 1)
+                if (test.AmountOfAnswers  == "1")
                 {
                     answer.Answer1 = nod["answer1"].InnerText;
                 }
 
-               else if (test.AmountOfAnswers == 2)
+               else if (test.AmountOfAnswers == "2")
                 {
                     answer.Answer1 = nod["answer1"].InnerText;
                     answer.Answer2 = nod["answer2"].InnerText;
                 }
-                else if (test.AmountOfAnswers == 3)
+                else if (test.AmountOfAnswers == "3")
                 {
                     answer.Answer1 = nod["answer1"].InnerText;
                     answer.Answer2 = nod["answer2"].InnerText;
                     answer.Answer3 = nod["answer3"].InnerText;
                 }
 
-                else if (test.AmountOfAnswers == 4)
+                else if (test.AmountOfAnswers == "4")
                 {
                     answer.Answer1 = nod["answer1"].InnerText;
                     answer.Answer2 = nod["answer2"].InnerText;
@@ -73,22 +76,23 @@ namespace test
 
                 else
                 {
-                    Response.Write("Felmeddelande: För många svar att hämat hem från xml, kontakta din IT support!");
+                        return;
                 }
 
 
-                if (test.AmountOfRightAnswers == 1)
+                if (test.AmountOfRightAnswers == "1")
                 {
                     rightanswer.Rightanswer1 = nod["rightanswer1"].InnerText;
                 }
-                else if (test.AmountOfRightAnswers == 2)
+                else if (test.AmountOfRightAnswers == "2")
                 {
                     rightanswer.Rightanswer1 = nod["rightanswer1"].InnerText;
                     rightanswer.Rightanswer2 = nod["rightanswer2"].InnerText;
                 }
                 else
                 {
-                    Response.Write("Felmeddelande: För många rättasvar att hämat hem från xml, kontakta din IT support!");
+                        return;
+                    //Response.Write("Felmeddelande: Här gick något fel vid hämtade av rätt svar, kontakta din IT support!");
                 }
 
 
@@ -99,8 +103,14 @@ namespace test
                 
             }
 
-            //Repeater1.DataSource = testlista;
-            //Repeater1.DataBind();
+                //Repeater1.DataSource = testlista;
+                //Repeater1.DataBind();
+            }
+            catch (Exception e)
+            {
+
+                Response.Write("e");
+            }
         }
 
         private void Loadtest()

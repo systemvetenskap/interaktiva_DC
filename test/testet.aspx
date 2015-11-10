@@ -35,11 +35,9 @@
           <div class="maincontent">
           
 
-              <asp:Panel ID="panel" runat="server"
-              commandArgument ="loadtest()"    
-                  
-              ></asp:Panel>
-           </div> 
+          <asp:Panel ID="panel" runat="server" commandArgument ="loadtest()" ></asp:Panel>
+           
+          </div> 
          </div>
 
               <div class="footer">

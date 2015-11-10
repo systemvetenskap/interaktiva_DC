@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
+using System.Data;
+
 
 namespace test
 {
@@ -28,8 +30,6 @@ namespace test
             
             testlista = new List<ClassQuestions>();
             XmlNodeList xmlLista = doc.SelectNodes("/test/testquestion");
-
-
 
             foreach (XmlNode nod in xmlLista)
             {
@@ -99,8 +99,8 @@ namespace test
                 
             }
 
-            //Repeater1.DataSource = testlista;
-            //Repeater1.DataBind();
+            Repeater1.DataSource = testlista;
+            Repeater1.DataBind();
         }
 
         private void Loadtest()
